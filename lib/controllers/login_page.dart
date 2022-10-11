@@ -7,9 +7,20 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
+String loginAcessoField = '';
+List<String> loginAcesso = [
+  'Andrade',
+  'Isabely',
+  'Leonam',
+  'Mayane',
+  'Anagely',
+  'Leo',
+  'Caique',
+  'Marlom',
+  'Castelo'
+];
+
 class _LoginPageState extends State<LoginPage> {
-  String loginAcesso = 'teresinha';
-  String senha = '123';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,36 +38,24 @@ class _LoginPageState extends State<LoginPage> {
                   height: 50,
                 ),
                 TextField(
-                    onChanged: (text) => loginAcesso = text,
+                    onChanged: (text) => loginAcessoField = text,
                     keyboardType: TextInputType.name,
                     decoration: InputDecoration(
-                        labelText: "Dados de Acesso",
+                        labelText: "Digite seu nome",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(50),
                         ))),
-                const SizedBox(
-                  height: 15,
-                ),
-                TextField(
-                  onChanged: (text) => senha = text,
-                  keyboardType: TextInputType.number,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                      labelText: "Senha",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50),
-                      )),
-                ),
                 const SizedBox(
                   height: 30,
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    if (loginAcesso.toLowerCase() == "teresinha" &&
-                        senha == '123') {
-                      Navigator.of(context).pushReplacementNamed('/home');
-                    } else {
-                      debugPrint("Errado");
+                    for (var i = 0; i < loginAcesso.length; i++) {
+                      if (loginAcessoField.toLowerCase() == loginAcesso[i]) {
+                        Navigator.of(context).pushReplacementNamed('/home');
+                      } else {
+                        const TextButton(onPressed: null, child: Text('teste'));
+                      }
                     }
                   },
                   style: ButtonStyle(
