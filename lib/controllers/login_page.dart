@@ -7,18 +7,7 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-String loginAcessoField = '';
-List<String> loginAcesso = [
-  'Andrade',
-  'Isabely',
-  'Leonam',
-  'Mayane',
-  'Anagely',
-  'Leo',
-  'Caique',
-  'Marlom',
-  'Castelo'
-];
+String loginAcesso = '';
 
 class _LoginPageState extends State<LoginPage> {
   @override
@@ -38,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
                   height: 50,
                 ),
                 TextField(
-                    onChanged: (text) => loginAcessoField = text,
+                    onChanged: (text) => loginAcesso = text,
                     keyboardType: TextInputType.name,
                     decoration: InputDecoration(
                         labelText: "Digite seu nome",
@@ -50,13 +39,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    for (var i = 0; i < loginAcesso.length; i++) {
-                      if (loginAcessoField.toLowerCase() == loginAcesso[i]) {
-                        Navigator.of(context).pushReplacementNamed('/home');
-                      } else {
-                        const TextButton(onPressed: null, child: Text('teste'));
-                      }
-                    }
+                    Navigator.of(context).pushReplacementNamed('/home');
                   },
                   style: ButtonStyle(
                       backgroundColor:
